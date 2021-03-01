@@ -1,0 +1,67 @@
+{
+ "application": "rohit-test-01",
+ "id": "d9cc0fad-eafe-4d95-87f5-5a8bb0d3c75d",
+ "index": 7,
+ "keepWaitingPipelines": false,
+ "lastModifiedBy": "admin",
+ "limitConcurrent": true,
+ "name": "QA",
+ "spelEvaluator": "v4",
+ "stages": [
+  {
+   "application": "sampleapp",
+   "executionOptions": {
+    "successful": true
+   },
+   "expectedArtifacts": [
+    {
+     "defaultArtifact": {
+      "customKind": true,
+      "id": "13fa31f0-1439-493e-82aa-23e83e999a53"
+     },
+     "displayName": "demo",
+     "id": "f1f734b6-a110-48a2-9285-f11ccf689403",
+     "matchArtifact": {
+      "artifactAccount": "embedded-artifact",
+      "id": "1c16e501-443d-4a65-9ccc-f2bee5f57b23",
+      "name": "helloworld",
+      "type": "embedded/base64"
+     },
+     "useDefaultArtifact": false,
+     "usePriorArtifact": false
+    }
+   ],
+   "name": "Find Artifacts From Execution",
+   "pipeline": "c1a44923-2530-4835-9f19-8d07c3f290a9",
+   "refId": "1",
+   "requisiteStageRefIds": [],
+   "type": "findArtifactFromExecution"
+  },
+  {
+   "account": "default",
+   "cloudProvider": "kubernetes",
+   "manifestArtifactId": "f1f734b6-a110-48a2-9285-f11ccf689403",
+   "moniker": {
+    "app": "rohit-test-01"
+   },
+   "name": "Deploy (Manifest)",
+   "namespaceOverride": "default",
+   "refId": "2",
+   "requisiteStageRefIds": [
+    "1"
+   ],
+   "skipExpressionEvaluation": false,
+   "source": "artifact",
+   "trafficManagement": {
+    "enabled": false,
+    "options": {
+     "enableTraffic": false,
+     "services": []
+    }
+   },
+   "type": "deployManifest"
+  }
+ ],
+ "triggers": [],
+ "updateTs": "1614337212000"
+}
